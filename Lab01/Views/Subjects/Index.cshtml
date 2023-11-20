@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Lab01.Models.Mark>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List of subjects</h1>
+<form asp-action="Index" asp-asp-controller="Subject" method="get">
+    <input type="text" name="sudentCode" placeholder="Enter student code" />
+    <input type="submit" value="Search" class="btn btn-primary" />
+</form>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Mark</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mark1)
+            </td>
+            <td>
+                @Html.ActionLink("UpdateMark", "UpdateMark", new {studentCode=item.StudentCode,subject=item.Subject}, new{@class="btn btn-warning"}) |
+                    @Html.ActionLink("DeleteSubject", "DeleteSubject", new {studentCode=item.StudentCode,subject=item.Subject}, new{@class="btn btn-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
