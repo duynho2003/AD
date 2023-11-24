@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Lab02.Models.Product>
-
+@addTagHelper *, Lab2
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Shopping product</h1>
+<h1>Product list</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -27,7 +27,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Photo)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.QrCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BarCode)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -47,6 +52,9 @@
             </td>
             <td>
                 <img src="@item.Photo" width="110" />
+            </td>
+            <td>
+                <qrcode content="@item.QrCode" width="110" height="110"/>
             </td>
             <td>
                 <a asp-action="Buy" asp-route-id="@item.ProductId" asp-controller="Order">Add to cart</a> |

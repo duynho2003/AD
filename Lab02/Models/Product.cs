@@ -14,6 +14,8 @@ public partial class Product
     public int? Quantity { get; set; }
 
     public string? Photo { get; set; }
+    public string? QrCode { get; set; }
+    public string? BarCode { get; set; }
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 }

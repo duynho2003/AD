@@ -95,6 +95,12 @@ public partial class AddbContext : DbContext
             entity.Property(e => e.ProductName)
                 .HasMaxLength(50)
                 .IsUnicode(false);
+            entity.Property(e => e.QrCode)
+                .HasMaxLength(150)
+                .IsUnicode(false);
+            entity.Property(e => e.BarCode)
+                .HasMaxLength(150)
+                .IsUnicode(false);
         });
 
         OnModelCreatingPartial(modelBuilder);
