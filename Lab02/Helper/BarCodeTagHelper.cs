@@ -19,7 +19,7 @@ namespace Lab02.Helper
             int width = int.Parse(context.AllAttributes["width"].Value.ToString());
             var barcode = new ZXing.BarcodeWriterPixelData
             {
-                Format = ZXing.BarcodeFormat.QR_CODE,
+                Format = ZXing.BarcodeFormat.CODE_128,
                 Options = new QrCodeEncodingOptions
                 {
                     DisableECI = true,

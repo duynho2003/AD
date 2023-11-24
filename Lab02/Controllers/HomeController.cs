@@ -41,7 +41,7 @@ namespace Lab02.Controllers
                     var path = Path.Combine("wwwroot/images", file.FileName);
                     var stream = new FileStream(path, FileMode.Create);
                     file.CopyToAsync(stream);
-                    product.Photo = "images/" + file.FileName;
+                    product.Photo = "/images/" + file.FileName;
 
                     productRepository.PostProduct(product);
 

@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Lab02.Models.Product>
-@addTagHelper *, Lab2
+@addTagHelper *, Lab02
 @{
     ViewData["Title"] = "Index";
 }
@@ -33,6 +33,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.BarCode)
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -57,9 +58,12 @@
                 <qrcode content="@item.QrCode" width="110" height="110"/>
             </td>
             <td>
-                <a asp-action="Buy" asp-route-id="@item.ProductId" asp-controller="Order">Add to cart</a> |
+                <barcode content="@item.BarCode" width="130" height="110"/>
+            </td>
+            <td>
+                <a asp-action="Buy" asp-route-id="@item.ProductId" asp-controller="Order">Add to cart</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>
